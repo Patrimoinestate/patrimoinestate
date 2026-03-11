@@ -325,11 +325,11 @@
 
         <div class="hospital-login-branding">
             <div class="branding-content">
-                <div class="branding-logo">
+                {{-- <div class="branding-logo">
                     @if (($snipeSettings) && ($snipeSettings->logo!=''))
                        <img id="login-logo" src="{{ asset('img/logo.png') }}" alt="Logo de l'Hôpital">
                     @endif
-                </div>
+                </div> --}}
 
                 <h1 class="branding-title">CHU UCL Namur</h1>
                     <p class="branding-subtitle">
