@@ -40,7 +40,10 @@
 
 
     <style>
-
+        @primary-color: #005ea8;
+        @secondary-color: #f29400;
+        @background-color: #f5f8fb;
+        @text-color: #2f3a44;
         :root {
             color-scheme: light dark;
             --btn-theme-hover-text-color: {{ $nav_link_color ?? 'light-dark(hsl(from var(--main-theme-color) h s calc(l - 10)),hsl(from var(--main-theme-color) h s calc(l - 10)))' }};
@@ -133,11 +136,23 @@
         .list-group-item {
             border: var(--tab-bottom-border);
         }
+        .main-footer {
+            margin-left: 230px;
+            background-color: #005ea8 !important;
+            color: #ffffff !important;
+            border-top: 3px solid #f29400 !important;
+        }
 
-        footer.main-footer {
-            color: var(--main-footer-text-color) !important;
-            background-color: var(--main-footer-bg-color) !important;
-            border-top: 1px solid var(--main-footer-top-border-color) !important;
+        .sidebar-mini.sidebar-collapse .main-footer {
+            margin-left: 50px;
+        }
+       
+        footer.main-footer a {
+            color: white !important;
+        }
+
+        footer.main-footer a:hover {
+            color: #f29400 !important;
         }
 
         a,
@@ -419,9 +434,12 @@
             border-right-color: var(--box-header-top-border-color) !important;
         }
 
-        .box {
-            border-top: 3px solid;
+                .box {
+            border-top: 3px solid #005ea8;
+            border-radius: 10px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
         }
+        
 
         .box.box-default {
             border-top:  var(--box-header-top-border);
@@ -527,7 +545,13 @@
         {
             border-top: var(--table-border-row) !important;
         }
+        .table > thead {
+            background-color: lighten(@primary-color, 45%);
+        }
 
+        .table-striped > tbody > tr:nth-child(even) {
+            background-color: #f7fafc;
+        }
 
         .table-striped > tbody > tr:nth-of-type(even),
         .row-new-striped > .row:nth-of-type(even),
@@ -680,9 +704,9 @@
          */
 
         .main-sidebar {
-            background-color: #1e282c;
+           background-color: #005ea8;
         }
-
+       
         .list-group-item.subitem {
             padding-left:20px !important;
         }
@@ -704,12 +728,12 @@
 
 
         .sidebar-menu > li:hover {
-            background-color: #2c3b41;
+            background-color: #f29400;
         }
 
         .sidebar-menu>li>.treeview-menu
         {
-            background-color: #1e282c;
+            background-color: #f29400;
         }
 
 

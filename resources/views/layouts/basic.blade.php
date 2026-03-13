@@ -27,6 +27,7 @@
     @endif
 
     <style>
+        
         body.login-page {
             margin: 0;
             min-height: 100vh;
@@ -138,6 +139,7 @@
         .hospital-login-panel {
             width: 100%;
             max-width: 480px;
+            margin: 0 auto;
         }
 
         .mobile-brand {
@@ -216,23 +218,35 @@
             box-shadow: 0 0 0 3px rgba(0, 94, 168, 0.12);
         }
 
+     
+                    /* Boutons principaux */
+
         .btn-primary {
             background-color: #005ea8;
             border-color: #005ea8;
             color: #ffffff;
-            border-radius: 6px;
+            border-radius: 8px;
             font-weight: 700;
             height: 44px;
+            transition: all 0.25s ease;
         }
+
+        /* Hover */
 
         .btn-primary:hover,
         .btn-primary:focus,
         .btn-primary:active {
-            background-color: #004b86 !important;
-            border-color: #004b86 !important;
+            background-color: #f29400 !important;
+            border-color: #f29400 !important;
             color: #ffffff !important;
         }
 
+        /* Animation légère */
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+        }
         .btn-google {
             border-radius: 6px;
         }
@@ -303,7 +317,7 @@
             }
 
             .hospital-login-form-area {
-                 width: 50%;
+                 width: 100%;
                  min-height: 100vh;
                 background: #f6f9fc;
                 display: flex;
