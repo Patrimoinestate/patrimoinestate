@@ -50,7 +50,7 @@
             --main-footer-bg-color: light-dark(#ffffff,#3d4144);
             --main-footer-text-color: light-dark(#605e5e, #d2d6de);
             --main-footer-top-border-color: light-dark(#d2d6de,#605e5e);
-            --main-theme-color: {{ $snipeSettings->header_color ?? '#3c8dbc' }};
+            --main-theme-color: {{ $snipeSettings->header_color ?? '#005ea8' }};
             --nav-hover-text-color: {{ $nav_link_color ?? 'hsl(from var(--main-theme-color) h s calc(l - 10))' }};
             --nav-primary-text-color: {{ $nav_link_color ?? '#ffffff' }};
             --search-highlight: #e9d15b;
@@ -1787,26 +1787,12 @@
 
                 </section>
 
-            </div><!-- /.content-wrapper -->
+             </div><!-- /.content-wrapper -->
             <footer class="main-footer hidden-print" style="display:grid;flex-direction:column;">
 
                 <div class="hidden-xs pull-left">
                     <div class="pull-left footer-links">
                          {!! trans('general.footer_credit') !!}
-
-                        <a target="_blank" href="https://bsky.app/profile/snipeitapp.com" rel="noopener" data-tooltip="true" data-title="Join us on Bluesky">
-                            <i class="fa-brands fa-square-bluesky fa-fw"></i>
-                        </a>
-                        <a target="_blank" href="https://github.com/grokability/snipe-it/" rel="noopener" data-tooltip="true" data-title="Join us on Github">
-                            <i class="fa-brands fa-square-github fa-fw"></i>
-                        </a>
-                        <a target="_blank" href="https://hachyderm.io/@grokability" rel="noopener" data-tooltip="true" data-title="Join us on Mastodon">
-                            <i class="fa-brands fa-mastodon fa-fw"></i>
-                        </a>
-                        <a target="_blank" href="https://discord.gg/yZFtShAcKk" rel="noopener" data-tooltip="true" data-title="Join us on Discord">
-                            <i class="fa-brands fa-discord fa-fw"></i>
-                        </a>
-
                     </div>
                     <div class="pull-right">
                     @if ($snipeSettings->version_footer!='off')
@@ -1826,9 +1812,9 @@
                     @if ($snipeSettings->support_footer!='off')
                         @if (($snipeSettings->support_footer=='on') || (($snipeSettings->support_footer=='admin') && (Auth::user()->isSuperUser()=='1')))
                             <a target="_blank" class="label label-default"
-                               href="https://snipe-it.readme.io/docs/overview"
+                               href="https://patrimoinestate.com/contact"
                                rel="noopener">{{ trans('general.user_manual') }}</a>
-                            <a target="_blank" class="label label-default" href="https://snipeitapp.com/support/"
+                            <a target="_blank" class="label label-default" href="https://patrimoinestate.com/contact"
                                rel="noopener">{{ trans('general.bug_report') }}</a>
                         @endif
                     @endif
@@ -1848,7 +1834,6 @@
                 </div>
             </footer>
         </div><!-- ./wrapper -->
-
 
         <!-- end main container -->
 
