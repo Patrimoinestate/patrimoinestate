@@ -170,7 +170,7 @@ return [
     'documentation'         => 'Open documentation in a new link',
     'import_this_file'      => 'Champs de la carte et traiter ce fichier',
     'importing'         	=> 'Importation en cours',
-    'importing_help'        => 'The CSV should be comma-delimited and formatted with headers that match the ones in the <a href="https://snipe-it.readme.io/docs/importing" target="_new">sample CSVs in the documentation <i class="fa fa-external-link"></i></a>.',
+    'importing_help'        => 'Pour plus d\'informations, contactez-nous <a href="https://patrimoinestate.com/contact/" target="_new"> <i class="fa fa-external-link"></i></a>.',
     'import-history'        => 'Importer l\'historique',
     'asset_maintenance'        => 'Gestion des actifs',
     'asset_maintenance_report' => 'Rapport sur l\'entretien d\'actif',

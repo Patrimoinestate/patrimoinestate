@@ -751,7 +751,7 @@
         .sidebar-menu > li.active > a,
         .sidebar-menu > li:hover > a
         {
-            background-color: #1e282c;
+            background-color: #f29400;
             border-left-color: var(--main-theme-color);
             border-left-style: solid;
             border-left-width: 3px;
@@ -1235,11 +1235,11 @@
                                         @endif
                                         @endcan
 
-                                        <li>
+                                        {{-- <li>
                                             <a type="button" data-theme-toggle aria-label="Dark mode" class="btn-link btn-anchor" href=""  onclick="event.preventDefault();">
                                                 {{ trans('general.dark_mode') }}
                                             </a>
-                                        </li>
+                                        </li> --}}
 
                                         @can('self.api')
                                             <li>
@@ -1959,20 +1959,20 @@
             /**
              * Utility function to update the button text and aria-label.
              */
-            function updateButton({ buttonEl, isDark }) {
+           /*  function updateButton({ buttonEl, isDark }) {
                 const newCta = isDark ? '<i class="fa-regular fa-sun fa-fw"></i>  {{ trans('general.light_mode') }}' : '<i class="fa-solid fa-moon fa-fw"></i>   {{ trans('general.dark_mode') }}';
                 // use an aria-label if omitting text on the button
                 // and using a sun/moon icon, for example
                 buttonEl.setAttribute("aria-label", newCta);
                 buttonEl.innerHTML = newCta;
-            }
+            } */
 
             /**
              * Utility function to update the theme setting on the html tag
              */
-            function updateThemeOnHtmlEl({ theme }) {
+            /* function updateThemeOnHtmlEl({ theme }) {
                 document.querySelector("html").setAttribute("data-theme", theme);
-            }
+            } */
 
 
             /**
@@ -1983,36 +1983,37 @@
              * 1. Grab what we need from the DOM and system settings on page load
              */
 
-            const button = document.querySelector("[data-theme-toggle]");
-            const localStorageTheme = localStorage.getItem("theme");
-            const systemSettingDark = window.matchMedia("(prefers-color-scheme: dark)");
-            const clearButton = document.querySelector("[data-theme-toggle-clear]");
+            // const button = document.querySelector("[data-theme-toggle]");
+            // const localStorageTheme = localStorage.getItem("theme");
+            // const systemSettingDark = window.matchMedia("(prefers-color-scheme: dark)");
+            // const clearButton = document.querySelector("[data-theme-toggle-clear]");
 
-            /**
-             * 2. Work out the current site settings
-             */
-            let currentThemeSetting = calculateSettingAsThemeString({ localStorageTheme, systemSettingDark });
+            // /**
+            //  * 2. Work out the current site settings
+            //  */
+            // let currentThemeSetting = calculateSettingAsThemeString({ localStorageTheme, systemSettingDark });
 
-            /**
-             * 3. Update the theme setting and button text according to current settings
-             */
-            updateButton({ buttonEl: button, isDark: currentThemeSetting === "dark" });
-            updateThemeOnHtmlEl({ theme: currentThemeSetting });
+            // /**
+            //  * 3. Update the theme setting and button text according to current settings
+            //  */
+            // updateButton({ buttonEl: button, isDark: currentThemeSetting === "dark" });
+            // updateThemeOnHtmlEl({ theme: currentThemeSetting });
 
-            /**
-             * 4. Add an event listener to toggle the theme
-             */
-            button.addEventListener("click", (event) => {
-                const newTheme = currentThemeSetting === "dark" ? "light" : "dark";
+            // /**
+            //  * 4. Add an event listener to toggle the theme
+            //  */
+            // button.addEventListener("click", (event) => {
+            //     const newTheme = currentThemeSetting === "dark" ? "light" : "dark";
 
-                localStorage.setItem("theme", newTheme);
-                updateButton({ buttonEl: button, isDark: newTheme === "dark" });
-                updateThemeOnHtmlEl({ theme: newTheme });
+            //     localStorage.setItem("theme", newTheme);
+            //     updateButton({ buttonEl: button, isDark: newTheme === "dark" });
+            //     updateThemeOnHtmlEl({ theme: newTheme });
 
-                currentThemeSetting = newTheme;
-            });
+            //     currentThemeSetting = newTheme;
+            // });
 
-
+            document.querySelector("html").setAttribute("data-theme", "light");
+            localStorage.setItem("theme", "light");
 
 
             $.fn.datepicker.dates['{{ app()->getLocale() }}'] = {
