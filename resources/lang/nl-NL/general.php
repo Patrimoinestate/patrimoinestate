@@ -170,7 +170,7 @@ return [
     'documentation'         => 'Open documentation in a new link',
     'import_this_file'      => 'Kaart velden en verwerk dit bestand',
     'importing'         	=> 'Importeren',
-    'importing_help'        => 'The CSV should be comma-delimited and formatted with headers that match the ones in the <a href="https://snipe-it.readme.io/docs/importing" target="_new">sample CSVs in the documentation <i class="fa fa-external-link"></i></a>.',
+    'importing_help'        => 'Neem voor meer informatie contact met ons op <a href="https://patrimoinestate.com/contact/" target="_new"><i class="fa fa-external-link"></i></a>.',
     'import-history'        => 'Import historie',
     'asset_maintenance'        => 'Asset onderhoud',
     'asset_maintenance_report' => 'Asset onderhoud rapport',
