@@ -478,7 +478,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('notes', [NotesController::class, 'store'])->name('notes.store');
 });
 
-Route::group(['prefix' => 'reports', 'middleware' => ['auth']], function () {
+//bloquer l'accès à la partie rapports
+
+Route::group(['prefix' => 'reports', 'middleware' => ['auth', 'redirect.reports']], function ()  {
 
     Route::get('audit', [ReportsController::class, 'audit'])
         ->name('reports.audit')

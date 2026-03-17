@@ -14,37 +14,40 @@ return array(
     */
 
     'week_start_select' => 'Select Day of Week',
-    'week_start' => 'Day the Week Starts On',
+    'week_start' => 'Jour où commence la semaine',
     'today' => 'Aujourd\'hui',
     'clear' => 'Clear',
     'days' => [
-        'sunday' => 'Dimanche',
+        
         'monday' => 'Lundi',
         'tuesday' => 'Mardi',
         'wednesday' =>  'Mercredi',
         'thursday' =>  'Thursday',
         'friday' =>  'Friday',
         'saturday' =>  'Saturday',
+        'sunday' => 'Dimanche',
         ],
 
     'short_days' => [
-        'sunday' => 'Sun',
+        
         'monday' => 'Mon',
         'tuesday' => 'Tue',
         'wednesday' =>  'Mer.',
         'thursday' =>  'Jeu.',
         'friday' =>  'Ven.',
         'saturday' =>  'Sam.',
+        'sunday' => 'Sun',
     ],
 
     'min_days' => [
-        'sunday' => 'Su',
+       
         'monday' => 'Mo',
         'tuesday' => 'Tu',
         'wednesday' =>  'We',
         'thursday' =>  'Th',
         'friday' =>  'Fr',
         'saturday' =>  'Sa',
+         'sunday' => 'Su',
     ],
 
     'months' => [
