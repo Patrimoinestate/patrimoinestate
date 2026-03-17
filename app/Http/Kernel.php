@@ -75,6 +75,7 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'api-throttle' => \App\Http\Middleware\SetAPIResponseHeaders::class,
+        'redirect.reports' => \App\Http\Middleware\RedirectReportsToIntegrator::class,//bloquer l'accès aux rapports
         'health' => null,
     ];
 }

@@ -14,12 +14,15 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
 
 
-    <link rel="apple-touch-icon"
-          href="{{ ($snipeSettings) && ($snipeSettings->favicon!='') ?  Storage::disk('public')->url(e($snipeSettings->logo)) :  config('app.url').'/img/snipe-logo-bug.png' }}">
-    <link rel="apple-touch-startup-image"
-          href="{{ ($snipeSettings) && ($snipeSettings->favicon!='') ?  Storage::disk('public')->url(e($snipeSettings->logo)) :  config('app.url').'/img/snipe-logo-bug.png' }}">
-    <link rel="shortcut icon" type="image/ico"
-          href="{{ ($snipeSettings) && ($snipeSettings->favicon!='') ?  Storage::disk('public')->url(e($snipeSettings->favicon)) : config('app.url').'/favicon.ico' }}">
+                <link rel="icon" type="image/x-icon"
+                     href="{{ ($snipeSettings && $snipeSettings->favicon!='')
+                    ? Storage::disk('public')->url($snipeSettings->favicon)
+                    : asset('favicon.ico') }}">
+
+                <link rel="apple-touch-icon"
+                    href="{{ ($snipeSettings && $snipeSettings->logo!='')
+                    ? Storage::disk('public')->url($snipeSettings->logo)
+                    : asset('img/snipe-logo-bug.png') }}">
 
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -973,6 +976,53 @@
         .bootstrap-table .fixed-table-container .table tbody tr.selected td {
             background-color: light-dark(hsl(from var(--main-theme-color) h s calc(l + 40)),hsl(from var(--main-theme-color) h s calc(l - 40))) !important;
         }
+
+        /* amélioration footer  */
+                .main-footer.hospital-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 12px 20px;
+            border-top: 2px solid #d9e2ec;
+            background-color: #ffffff;
+            color: #2f3e4e;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .main-footer.hospital-footer .footer-left,
+        .main-footer.hospital-footer .footer-center,
+        .main-footer.hospital-footer .footer-right {
+            flex: 1;
+        }
+
+        .main-footer.hospital-footer .footer-center {
+            text-align: center;
+        }
+
+        .main-footer.hospital-footer .footer-right {
+            text-align: right;
+        }
+
+        .main-footer.hospital-footer a {
+            text-decoration: none;
+        }
+
+        .main-footer.hospital-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .main-footer.hospital-footer .footer-subtext {
+            margin-top: 4px;
+            font-size: 12px;
+            opacity: 0.85;
+        }
+
+        .main-footer.hospital-footer .footer-separator {
+            margin: 0 8px;
+            opacity: 0.6;
+        }
     </style>
 
     {{-- Custom CSS --}}
@@ -1639,56 +1689,20 @@
                                 </ul>
                             </li>
                         @endcan
+                        
 
                         @can('reports.view')
-                            <li class="treeview{{ (request()->is('reports*') ? ' active' : '') }}">
-                                <a href="#" class="dropdown-toggle">
-                                    <x-icon type="reports" class="fa-fw" />
-                                    <span>{{ trans('general.reports') }}</span>
-                                    <x-icon type="angle-left" class="pull-right"/>
-                                </a>
+                            <li>
+                                <a href="{{ config('custom.integrator_redirect_url') }}"
+                                target="_blank"
+                                rel="noopener"
+                                title="Ouverture du portail PowerBI">
 
-                                <ul class="treeview-menu">
-                                    <li {{!! (request()->is('reports/activity') ? ' class="active"' : '') !!}}>
-                                        <a href="{{ route('reports.activity') }}">
-                                            {{ trans('general.activity_report') }}
-                                        </a>
-                                    </li>
-                                    <li {{!! (request()->is('reports/custom') ? ' class="active"' : '') !!}}>
-                                        <a href="{{ url('reports/custom') }}">
-                                            {{ trans('general.custom_report') }}
-                                        </a>
-                                    </li>
-                                    <li {{!! (request()->is('reports/audit') ? ' class="active"' : '') !!}}>
-                                        <a href="{{ route('reports.audit') }}">
-                                            {{ trans('general.audit_report') }}</a>
-                                    </li>
-                                    <li {{!! (request()->is('reports/depreciation') ? ' class="active"' : '') !!}}>
-                                        <a href="{{ url('reports/depreciation') }}">
-                                            {{ trans('general.depreciation_report') }}
-                                        </a>
-                                    </li>
-                                    <li {{!! (request()->is('reports/licenses') ? ' class="active"' : '') !!}}>
-                                        <a href="{{ url('reports/licenses') }}">
-                                            {{ trans('general.license_report') }}
-                                        </a>
-                                    </li>
-                                    <li {{!! (request()->is('ui.reports.maintenances') ? ' class="active"' : '') !!}}>
-                                        <a href="{{ route('ui.reports.maintenances') }}">
-                                            {{ trans('general.asset_maintenance_report') }}
-                                        </a>
-                                    </li>
-                                    <li {{!! (request()->is('reports/unaccepted_assets') ? ' class="active"' : '') !!}}>
-                                        <a href="{{ url('reports/unaccepted_assets') }}">
-                                            {{ trans('general.unaccepted_asset_report') }}
-                                        </a>
-                                    </li>
-                                    <li  {{!! (request()->is('reports/accessories') ? ' class="active"' : '') !!}}>
-                                        <a href="{{ url('reports/accessories') }}">
-                                            {{ trans('general.accessory_report') }}
-                                        </a>
-                                    </li>
-                                </ul>
+                                    <x-icon type="reports" class="fa-fw" />
+                                    <span>{{ __('general.reports') }}</span>
+                                    <i class="fas fa-external-link-alt"></i>
+
+                                </a>
                             </li>
                         @endcan
 
@@ -1812,51 +1826,55 @@
                 </section>
 
              </div><!-- /.content-wrapper -->
-            <footer class="main-footer hidden-print" style="display:grid;flex-direction:column;">
+                        <footer class="main-footer hidden-print hospital-footer">
+                <div class="footer-left">
+                    <strong>Gestion du patrimoine hospitalier - CHU UCL Namur </strong>
+                    @if ($snipeSettings->footer_text!='')
+                        <div class="footer-subtext">
+                            {!! Helper::parseEscapedMarkedown($snipeSettings->footer_text) !!}
+                        </div>
+                    @endif
+                </div>
 
-                <div class="hidden-xs pull-left">
-                    <div class="pull-left footer-links">
-                         {!! trans('general.footer_credit') !!}
-                    </div>
-                    <div class="pull-right">
+                <div class="footer-center">
                     @if ($snipeSettings->version_footer!='off')
                         @if (($snipeSettings->version_footer=='on') || (($snipeSettings->version_footer=='admin') && (Auth::user()->isSuperUser()=='1')))
-                            &nbsp; {{ trans('general.version') }} {{ config('version.app_version') }} -
-                            {{ trans('general.build') }} {{ config('version.build_version') }} ({{ config('version.branch') }})
+                            <span>{{ trans('general.version') }} {{ config('version.app_version') }}</span>
+                            <span>•</span>
+                            <span>{{ trans('general.build') }} {{ config('version.build_version') }}</span>
+                            <span>({{ config('version.branch') }})</span>
                         @endif
                     @endif
 
                     @if (isset($user) && ($user->isSuperUser()) && (app()->environment('local')))
-                       <a href="{{ url('telescope') }}" class="label label-default" rel="noopener">Open Telescope</a>
+                        <div style="margin-top:6px;">
+                            <a href="{{ url('telescope') }}" rel="noopener">Open Telescope</a>
+                        </div>
                     @endif
+                </div>
 
-
-
-
+                <div class="footer-right">
                     @if ($snipeSettings->support_footer!='off')
                         @if (($snipeSettings->support_footer=='on') || (($snipeSettings->support_footer=='admin') && (Auth::user()->isSuperUser()=='1')))
-                            <a target="_blank" class="label label-default"
-                               href="https://patrimoinestate.com/contact"
-                               rel="noopener">{{ trans('general.user_manual') }}</a>
-                            <a target="_blank" class="label label-default" href="https://patrimoinestate.com/contact"
-                               rel="noopener">{{ trans('general.bug_report') }}</a>
+                            <a target="_blank" href="https://patrimoinestate.com/contact" rel="noopener">
+                                {{ trans('general.user_manual') }}
+                            </a>
+                            <span class="footer-separator">|</span>
+                            <a target="_blank" href="https://patrimoinestate.com/contact" rel="noopener">
+                                Signaler un bug
+                            </a>
                         @endif
                     @endif
 
                     @if ($snipeSettings->privacy_policy_link!='')
-                        <a target="_blank" class="label label-default" rel="noopener"
-                           href="{{  $snipeSettings->privacy_policy_link }}"
-                           target="_new">{{ trans('admin/settings/general.privacy_policy') }}</a>
-                    @endif
-                    </div>
-                    <br>
-                    @if ($snipeSettings->footer_text!='')
-                        <div class="pull-left">
-                            {!!  Helper::parseEscapedMarkedown($snipeSettings->footer_text)  !!}
-                        </div>
+                        <span class="footer-separator">|</span>
+                        <a target="_blank" rel="noopener" href="{{ $snipeSettings->privacy_policy_link }}">
+                            {{ trans('admin/settings/general.privacy_policy') }}
+                        </a>
                     @endif
                 </div>
             </footer>
+            
         </div><!-- ./wrapper -->
 
         <!-- end main container -->

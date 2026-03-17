@@ -18,33 +18,36 @@ return array(
     'today' => 'Today',
     'clear' => 'Clear',
     'days' => [
-        'sunday' => 'Sunday',
+        
         'monday' => 'Monday',
         'tuesday' => 'Tuesday',
         'wednesday' =>  'Wednesday',
         'thursday' =>  'Thursday',
         'friday' =>  'Friday',
         'saturday' =>  'Saturday',
+        'sunday' => 'Sunday',
         ],
 
     'short_days' => [
-        'sunday' => 'Sun',
+        
         'monday' => 'Mon',
         'tuesday' => 'Tue',
         'wednesday' =>  'Wed',
         'thursday' =>  'Thu',
         'friday' =>  'Fri',
         'saturday' =>  'Sat',
+        'sunday' => 'Sun',
     ],
 
     'min_days' => [
-        'sunday' => 'Su',
+        
         'monday' => 'Mo',
         'tuesday' => 'Tu',
         'wednesday' =>  'We',
         'thursday' =>  'Th',
         'friday' =>  'Fr',
         'saturday' =>  'Sa',
+        'sunday' => 'Su',
     ],
 
     'months' => [
