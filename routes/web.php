@@ -24,6 +24,7 @@ use App\Http\Controllers\NotesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReportTemplatesController;
 use App\Http\Controllers\ReportsController;
+use App\Http\Controllers\OperationalReportsController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SetupController;
 use App\Http\Controllers\StatuslabelsController;
@@ -401,19 +402,19 @@ Route::group(['prefix' => 'account', 'middleware' => ['auth']], function () {
             ->push(trans('general.profile'), route('account'))
             ->push(trans('general.viewassets'), route('view-assets')));
 
-    Route::get('requested', [ViewAssetsController::class, 'getRequestedAssets'])
+     Route::get('requested', [ViewAssetsController::class, 'getRequestedAssets'])
         ->name('account.requested')
         ->breadcrumbs(fn (Trail $trail) =>
         $trail->parent('home')
             ->push(trans('general.profile'), route('account'))
-            ->push(trans('general.requested_assets_menu'), route('account.requested')));
+            ->push(trans('general.requested_assets_menu'), route('account.requested'))); 
 
-    Route::get(
+    /* Route::get(
         'requestable-assets', [ViewAssetsController::class, 'getRequestableIndex'])
         ->name('requestable-assets')
         ->breadcrumbs(fn (Trail $trail) =>
         $trail->parent('home')
-            ->push(trans('general.requestable_items'), route('requestable-assets')));
+            ->push(trans('general.requestable_items'), route('requestable-assets'))); */
 
 
     Route::post('request-asset/{asset}', [ViewAssetsController::class, 'store'])
@@ -601,7 +602,10 @@ Route::group(['prefix' => 'reports', 'middleware' => ['auth', 'redirect.reports'
         ->name('reports/export/unaccepted_assets');
 
 });
-
+Route::middleware(['auth'])->group(function () {
+    Route::get('/reports/operational', [OperationalReportsController::class, 'index'])
+        ->name('reports.operational');
+});
 
 Route::get(
     'auth/signin',

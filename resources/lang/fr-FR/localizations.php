@@ -16,7 +16,7 @@ return [
         //'hr-HR'=> 'Croate',
         //'cs-CZ'=> 'Tchèque',
         //'da-DK'=> 'Danois',
-        'nl-NL'=> 'Néerlandais',
+        //'nl-NL'=> 'Néerlandais',
         //'en-ID'=> 'Anglais, Indonésie',
         //'et-EE'=> 'Estonien',
         //'fil-PH'=> 'Philippin',
