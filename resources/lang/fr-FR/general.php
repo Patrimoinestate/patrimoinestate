@@ -65,7 +65,7 @@ return [
     'byod_help'             => 'Cet appareil appartient à l\'utilisateur·trice',
     'bystatus'              => 'par statut',
     'cancel'  				=> 'Annuler',
-    'categories'			=> 'Catégories d\'équipements',
+    'categories'			=> 'Catégories',
     'category'				=> 'Сatégorie d\équipement',
     'change' 		        => 'In / Out',
     'changeemail'  			=> 'Changer l\'adresse e-mail',
