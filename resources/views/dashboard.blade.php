@@ -9,7 +9,7 @@
 {{-- Page content --}}
 @section('content')
 
-@if ($snipeSettings->dashboard_message!='')
+ @if ($snipeSettings->dashboard_message!='')
 <div class="row">
     <div class="col-md-12">
         <div class="box box-default">
@@ -25,7 +25,7 @@
     </div>
 </div>
 @endif
-
+ 
 <div class="row">
 
     <!-- panel -->
@@ -152,19 +152,19 @@
     <div class="row">
         <div class="col-md-12">
             <div class="box box-default">
-                <div class="box-header with-border">
+                {{-- <div class="box-header with-border">
                     <h2 class="box-title">{{ trans('general.dashboard_info') }}</h2>
-                </div>
+                </div> --}}
                 <!-- /.box-header -->
                 <div class="box-body">
                     <div class="row">
                         <div class="col-md-12">
 
-                            <div class="progress">
+                           {{--  <div class="progress">
                                 <div class="progress-bar progress-bar-yellow" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
                                     <span class="sr-only">{{ trans('general.60_percent_warning') }}</span>
                                 </div>
-                            </div>
+                            </div> --}}
 
 
                             <p><strong>{{ trans('general.dashboard_empty') }}</strong></p>
