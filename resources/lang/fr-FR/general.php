@@ -258,7 +258,7 @@ return [
     'recent_activity'		=> 'Activité récente',
     'remaining'             => 'Restant',
     'remove_company'        => 'Retirer l\'association avec l\'organisation',
-    'reports'				=> 'Rapports & Analytics',
+    'reports'				=> 'Rapports analytiques',
     'restored'				=> 'restauré',
     'restore'				=> 'Restaurer',
     'requestable_models'    => 'Modèles demandables',

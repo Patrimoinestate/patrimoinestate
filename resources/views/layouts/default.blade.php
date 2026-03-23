@@ -1465,10 +1465,11 @@
                                                 {{ trans('general.bulk_checkout') }}
                                             </a>
                                         </li>
-                                        <li{!! (request()->is('hardware/requested') ? ' class="active"' : '') !!}>
+                                        {{--supprimer actifs demandés--}}
+                                        {{-- <li{!! (request()->is('hardware/requested') ? ' class="active"' : '') !!}>
                                             <a href="{{ route('assets.requested') }}">
                                                 {{ trans('general.requested') }}</a>
-                                        </li>
+                                        </li> --}}
                                     @endcan
 
                                     @can('create', \App\Models\Asset::class)
@@ -1698,15 +1699,24 @@
                                 rel="noopener"
                                 title="Ouverture du portail PowerBI">
 
-                                    <x-icon type="reports" class="fa-fw" />
+                                     <x-icon type="reports" class="fa-fw" /> 
                                     <span>{{ __('general.reports') }}</span>
-                                    <i class="fas fa-external-link-alt"></i>
+                                    {{-- <i class="fas fa-external-link-alt"></i> --}}
 
                                 </a>
                             </li>
-                        @endcan
 
-                        @can('viewRequestable', \App\Models\Asset::class)
+                            <li{!! (request()->routeIs('reports.operational') ? ' class="active"' : '') !!}>
+                                <a href="{{ route('reports.operational') }}">
+                                <i class="fa fa-clipboard" aria-hidden="true"></i>
+                                <span>Rapports opérationnels</span>
+                                </a>
+                            </li>
+                        @endcan
+                        
+                        <!--suppression de module éléments demandés-->
+                        
+                        {{-- @can('viewRequestable', \App\Models\Asset::class)
                             <li{!! (request()->is('account/requestable-assets') ? ' class="active"' : '') !!}>
                                 <a href="{{ route('requestable-assets') }}">
                                     <x-icon type="requestable" class="fa-fw" />
@@ -1714,7 +1724,7 @@
                                 </a>
                             </li>
                         @endcan
-
+ --}}
 
                     </ul>
                 </section>
