@@ -19,6 +19,7 @@ class OperationalReportsController extends Controller
                 'description' => 'Suivi des actifs mis en rebut',
                 'src'   => 'https://app.powerbi.com/view?r=eyJrIjoiMzM4MTUxNGItN2RhOC00MWI4LTlkZmYtMmRlMTVkNTRhYWJkIiwidCI6ImZmOWJlNTQxLTVlNmItNGFmMi1hZmZmLTY5NWUyOTY4MzlmMCIsImMiOjl9'
             ],
+          
         ];
 
         return view('reports.operational.index', compact('reports'));

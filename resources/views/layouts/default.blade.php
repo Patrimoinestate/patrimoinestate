@@ -1409,13 +1409,13 @@
                                             <span class="badge">{{ (isset($total_undeployable_sidebar)) ? $total_undeployable_sidebar : '' }}</span>
                                         </a>
                                     </li>
-                                    <li id="byod-sidenav-option"{!! (Request::query('status') == 'byod' ? ' class="active"' : '') !!}><a
+                                   {{--  <li id="byod-sidenav-option"{!! (Request::query('status') == 'byod' ? ' class="active"' : '') !!}><a
                                                 href="{{ url('hardware?status=byod') }}">
                                             <x-icon type="x" class="text-red fa-fw" />
                                             {{ trans('general.byod') }}
                                             <span class="badge">{{ (isset($total_byod_sidebar)) ? $total_byod_sidebar : '' }}</span>
                                         </a>
-                                    </li>
+                                    </li> --}}
                                     <li id="archived-sidenav-option"{!! (Request::query('status') == 'Archived' ? ' class="active"' : '') !!}><a
                                                 href="{{ url('hardware?status=Archived') }}">
                                             <x-icon type="x" class="text-red fa-fw" />
@@ -1984,61 +1984,7 @@
                 return "light";
             }
 
-            /**
-             * Utility function to update the button text and aria-label.
-             */
-           /*  function updateButton({ buttonEl, isDark }) {
-                const newCta = isDark ? '<i class="fa-regular fa-sun fa-fw"></i>  {{ trans('general.light_mode') }}' : '<i class="fa-solid fa-moon fa-fw"></i>   {{ trans('general.dark_mode') }}';
-                // use an aria-label if omitting text on the button
-                // and using a sun/moon icon, for example
-                buttonEl.setAttribute("aria-label", newCta);
-                buttonEl.innerHTML = newCta;
-            } */
-
-            /**
-             * Utility function to update the theme setting on the html tag
-             */
-            /* function updateThemeOnHtmlEl({ theme }) {
-                document.querySelector("html").setAttribute("data-theme", theme);
-            } */
-
-
-            /**
-             * On page load:
-             */
-
-            /**
-             * 1. Grab what we need from the DOM and system settings on page load
-             */
-
-            // const button = document.querySelector("[data-theme-toggle]");
-            // const localStorageTheme = localStorage.getItem("theme");
-            // const systemSettingDark = window.matchMedia("(prefers-color-scheme: dark)");
-            // const clearButton = document.querySelector("[data-theme-toggle-clear]");
-
-            // /**
-            //  * 2. Work out the current site settings
-            //  */
-            // let currentThemeSetting = calculateSettingAsThemeString({ localStorageTheme, systemSettingDark });
-
-            // /**
-            //  * 3. Update the theme setting and button text according to current settings
-            //  */
-            // updateButton({ buttonEl: button, isDark: currentThemeSetting === "dark" });
-            // updateThemeOnHtmlEl({ theme: currentThemeSetting });
-
-            // /**
-            //  * 4. Add an event listener to toggle the theme
-            //  */
-            // button.addEventListener("click", (event) => {
-            //     const newTheme = currentThemeSetting === "dark" ? "light" : "dark";
-
-            //     localStorage.setItem("theme", newTheme);
-            //     updateButton({ buttonEl: button, isDark: newTheme === "dark" });
-            //     updateThemeOnHtmlEl({ theme: newTheme });
-
-            //     currentThemeSetting = newTheme;
-            // });
+           
 
             document.querySelector("html").setAttribute("data-theme", "light");
             localStorage.setItem("theme", "light");
