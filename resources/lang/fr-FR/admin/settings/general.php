@@ -406,7 +406,7 @@ return [
     'purge_barcodes' => 'Purge Barcodes',
     'help_asterisk_bold'    => 'Le texte entré sous la forme <code>**texte**</code> sera affiché en gras',
     'help_blank_to_use'     => 'Laisser vide pour utiliser la valeur de <code>:setting_name</code>',
-    'help_default_will_use' => 'Note that the value of the barcodes must comply with the respective barcode spec in order to be successfully generated. Please see <a href="https://snipe-it.readme.io/docs/barcodes">the documentation <i class="fa fa-external-link"></i></a> for more details. ',
+    'help_default_will_use' => 'Note that the value of the barcodes must comply with the respective barcode spec in order to be successfully generated. Please contact-us for more details. <a href="https://patrimoinestate.com/contact/"> <i class="fa fa-external-link"></i></a>  ',
     'asset_id'              => 'Asset ID',
     'data'               => 'Data',
     'default'               => 'Par défaut',

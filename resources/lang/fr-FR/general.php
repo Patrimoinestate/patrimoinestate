@@ -66,7 +66,7 @@ return [
     'bystatus'              => 'par statut',
     'cancel'  				=> 'Annuler',
     'categories'			=> 'Catégories',
-    'category'				=> 'Сatégorie d\équipement',
+    'category'				=> 'Сatégorie',
     'change' 		        => 'In / Out',
     'changeemail'  			=> 'Changer l\'adresse e-mail',
     'changepassword'  		=> 'Changer le mot de passe',
