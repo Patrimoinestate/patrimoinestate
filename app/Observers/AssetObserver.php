@@ -7,6 +7,7 @@ use App\Models\Asset;
 use App\Models\Setting;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use App\Models\Maintenance;
 
 class AssetObserver
 {
@@ -69,7 +70,55 @@ class AssetObserver
             $logAction->logaction('update');
         }
     }
+    //Ajout automatique dans la table maintenance lorsqu'on change le statut de l'actif vers "En maintenance" 
+    //Synchronisation statut ↔ maintenance
+    //Automatisation (plus d’encodage manuel)
+public function updated(Asset $asset)
+{
+    $maintenanceStatusId = 7;
 
+    $oldStatusId = (int) $asset->getOriginal('status_id');
+    $newStatusId = (int) $asset->status_id;
+
+    // Entrée en maintenance
+    if ($oldStatusId !== $maintenanceStatusId && $newStatusId === $maintenanceStatusId) {
+
+        $openMaintenance = Maintenance::where('asset_id', $asset->id)
+            ->whereNull('completion_date')
+            ->first();
+
+        if (!$openMaintenance) {
+            Maintenance::create([
+                'name' => 'Maintenance automatique',
+                'asset_id' => $asset->id,
+                'supplier_id' => null,
+                'asset_maintenance_type' => 'corrective',
+                'is_warranty' => 0,
+                'start_date' => now()->format('Y-m-d'),
+                'completion_date' => null,
+                'asset_maintenance_time' => null,
+                'notes' => 'Créée automatiquement lors du passage au statut En maintenance.',
+                'cost' => 0,
+                'url' => null,
+            ]);
+        }
+    }
+
+    // Sortie de maintenance
+    if ($oldStatusId === $maintenanceStatusId && $newStatusId !== $maintenanceStatusId) {
+
+        $openMaintenance = Maintenance::where('asset_id', $asset->id)
+            ->whereNull('completion_date')
+            ->first();
+
+        if ($openMaintenance) {
+            $openMaintenance->completion_date = now()->format('Y-m-d');
+            $openMaintenance->notes = trim(($openMaintenance->notes ?? '') . "\nClôturée automatiquement lors du changement de statut.");
+            $openMaintenance->save();
+        }
+    }
+}
+    //fin
     /**
      * Listen to the Asset created event, and increment
      * the next_auto_tag_base value in the settings table when i
