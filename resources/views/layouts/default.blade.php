@@ -1423,12 +1423,12 @@
                                             <span class="badge">{{ (isset($total_archived_sidebar)) ? $total_archived_sidebar : '' }}</span>
                                         </a>
                                     </li>
-                                    <li id="requestable-sidenav-option"{!! (Request::query('status') == 'Requestable' ? ' class="active"' : '') !!}><a
+                                   {{--  <li id="requestable-sidenav-option"{!! (Request::query('status') == 'Requestable' ? ' class="active"' : '') !!}><a
                                                 href="{{ url('hardware?status=Requestable') }}">
                                             <x-icon type="checkmark" class="text-blue fa-fw" />
                                             {{ trans('admin/hardware/general.requestable') }}
                                         </a>
-                                    </li>
+                                    </li> --}}
 
                                     @can('audit', \App\Models\Asset::class)
                                         <li id="audit-due-sidenav-option"{!! (request()->is('hardware/audit/due') ? ' class="active"' : '') !!}>
